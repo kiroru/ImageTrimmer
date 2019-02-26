@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="libkrTrimFrameView">
+        <attr name="frameWidth" format="dimension"/>
+        <attr name="frameColor" format="color"/>
+    </declare-styleable>
+</resources>
