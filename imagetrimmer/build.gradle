@@ -50,6 +50,16 @@ uploadArchives {
             pom.version = android.defaultConfig.versionName
             pom.groupId = 'jp.kiroru'
             pom.artifactId = 'imagetrimmer'
+            pom.project {
+                description 'ImageTrimmer provides a screen to cut the image to be edited into a square.'
+                url 'https://github.com/kiroru/ImageTrimmer'
+                licenses {
+                    license {
+                        name 'MIT License'
+                        url 'https://opensource.org/licenses/MIT'
+                    }
+                }
+            }
         }
     }
 }

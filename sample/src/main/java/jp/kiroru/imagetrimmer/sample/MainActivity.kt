@@ -67,14 +67,17 @@ class MainActivity : AppCompatActivity() {
     private fun showImageTrimmer(inputUri: Uri, outputFile: File) {
         // Customize settings
         // If not specified, the default value is applied
+        val density = resources.displayMetrics.density
         val options = ImageTrimmerActivity.Options()
             .apply {
                 zoomingMultiplier = 2f
                 cancelButtonTitle = "Cancel"
+                cancelButtonTitleColor = Color.RED
                 confirmButtonTitle = "OK"
-                frameWidth = 4f
+                confirmButtonTitleColor = Color.BLUE
+                frameWidth = 4f * density
                 frameColor = Color.WHITE
-                frameDashPattern = floatArrayOf(8f, 4f, 4f, 4f)
+                frameDashPattern = floatArrayOf(8f * density, 4f * density, 4f * density, 4f * density)
             }
 
         // Display trimming activity
@@ -135,7 +138,7 @@ class MainActivity : AppCompatActivity() {
         val requestSize = Math.max(screenSize.x, screenSize.y)
 
         // Acquire a reduced image
-        var bitmap = ImageFileUtils.createReducedBitmap(this, imageUri, requestSize)?.let {
+        val bitmap = ImageFileUtils.createReducedBitmap(this, imageUri, requestSize)?.let {
             val rMatrix = Matrix().apply {
                 postRotate(ImageFileUtils.getImageRotation(this@MainActivity, imageUri).toFloat())
             }
