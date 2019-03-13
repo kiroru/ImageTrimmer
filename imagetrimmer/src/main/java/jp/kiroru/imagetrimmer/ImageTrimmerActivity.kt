@@ -25,14 +25,20 @@ class ImageTrimmerActivity : AppCompatActivity() {
         /** Title of the cancel button */
         var cancelButtonTitle: String = "Cancel",
 
+        /** Title color of the cancel button */
+        @ColorInt var cancelButtonTitleColor: Int = Color.WHITE,
+
         /** Title of the confirm button */
         var confirmButtonTitle: String = "OK",
+
+        /** Title color of the confirm button */
+        @ColorInt var confirmButtonTitleColor: Int = Color.WHITE,
 
         /** Width of dashed line indicating trimming area */
         var frameWidth: Float = 1.0f,
 
         /** Color of dashed line */
-        @ColorInt var frameColor: Int = Color.WHITE,
+        @ColorInt var frameColor: Int = Color.RED,
 
         /**
          * Pattern of dashed line
@@ -97,18 +103,20 @@ class ImageTrimmerActivity : AppCompatActivity() {
 
     /** Perform view setup */
     private fun setupViews() {
+        cancelButton.setTextColor(options.cancelButtonTitleColor)
         cancelButton.text = options.cancelButtonTitle
         cancelButton.setOnClickListener {
             setResult(Activity.RESULT_CANCELED)
             finish()
         }
 
+        confirmButton.setTextColor(options.confirmButtonTitleColor)
         confirmButton.text = options.confirmButtonTitle
         confirmButton.setOnClickListener {
             // Save and quantify the result file
             val image = trimImageView.getTrimmedImage()
 
-            var result = if (image != null && outputFile != null) {
+            val result = if (image != null && outputFile != null) {
                 saveImage(image, outputFile!!)
             } else {
                 false
