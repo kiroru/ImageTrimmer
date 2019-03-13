@@ -1,25 +1,22 @@
 # KRImageTrimmer for Android
-----------
 
 ImageTrimmer provides a screen to cut the image to be edited into a square.
 
 ## Screenshots
-----------
 
-<img src="https://raw.githubusercontent.com/kiroru/ImageTrimmer/master/sceenshot01.jpg" width="320px"/>
+<img src="screenshot01.jpg" width="320px"/>
 
 ## Example
-----------
 
-This is a sample to get an image from a camera or gallery app and crop it with this library. You can execute the sample in the following procedure.
+This is a sample to get an image from a camera or gallery app and crop it with this library.   
+You can execute the sample in the following procedure.
 
 1. Get this repository locally with `git clone`.
 2. Open the project in `Android Studio` and execute the `sample` module.
 
 ## Installation
-----------
 
-Add the following description to build.gradle under the app directory.
+Add the following description to build.gradle under the app directory.  
 After adding, run gradle sync.
 
 ```Ruby
@@ -36,11 +33,8 @@ dependencies {
 ```
 
 ## Basic Usage
-----------
 
 This is an example of trimming the example.jpg below drawable.
-
-1. Open the trimming Activity.
 
 To open the trimming activity, Uri of the input image and File of the result output destination are required.
 
@@ -61,8 +55,6 @@ fun show() {
 }
 ```
 
-2. Get the result image.
-
 Receive the completion of processing with onActivityResult, and obtain an image from the file path of the output image.
 
 ```Kotlin
@@ -79,6 +71,5 @@ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) 
 ```
 
 ## License
-----------
 
 ImageTrimmer is available under the MIT license. See the LICENSE file for more info.
