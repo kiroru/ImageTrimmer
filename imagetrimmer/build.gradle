@@ -8,8 +8,8 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0.0"
+        versionCode 2
+        versionName "1.0.1"
         version = android.defaultConfig.versionName
     }
 
@@ -50,6 +50,16 @@ uploadArchives {
             pom.version = android.defaultConfig.versionName
             pom.groupId = 'jp.kiroru'
             pom.artifactId = 'imagetrimmer'
+            pom.project {
+                description 'ImageTrimmer provides a screen to cut the image to be edited into a square.'
+                url 'https://github.com/kiroru/ImageTrimmer'
+                licenses {
+                    license {
+                        name 'MIT License'
+                        url 'https://opensource.org/licenses/MIT'
+                    }
+                }
+            }
         }
     }
 }
