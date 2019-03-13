@@ -28,7 +28,7 @@ repositories {
 
 dependencies {
     ..(other dependencies)..
-    implementation 'jp.kiroru:imagetrimmer:1.0.0'
+    implementation 'jp.kiroru:imagetrimmer:1.0.1'
 }
 ```
 
