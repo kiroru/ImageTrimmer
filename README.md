@@ -1,4 +1,4 @@
-# KRImageTrimmer for Android
+# ImageTrimmer for Android
 
 ImageTrimmer provides a screen to cut the image to be edited into a square.
 
