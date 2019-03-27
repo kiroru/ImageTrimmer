@@ -102,9 +102,9 @@ internal class ViewerImageView @JvmOverloads constructor(
 
         // Convert the coordinates for the purpose of cropping with the original image size
         val srcLeft = (left * srcScale).toInt()
-        val srcTop = (top * srcScale).toInt()
+        var srcTop = (top * srcScale).toInt()
         val srcWidth = (width * srcScale).toInt()
-        val srcHeight = (height * srcScale).toInt()
+        var srcHeight = (height * srcScale).toInt()
 
         // Reflect only rotation
         val rMatrix = Matrix().apply {
@@ -113,6 +113,16 @@ internal class ViewerImageView @JvmOverloads constructor(
 
         // Since reflection of Matrix and Crop at the same time may cause memory violation, it is carried out in two stages
         bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, rMatrix, false)
+
+        // Fix for Android 5 -- Why shift one pixel?
+        if (srcTop + srcHeight > bitmap.height) {
+            srcTop = bitmap.height - srcHeight
+        }
+        if (srcTop < 0) {
+            srcTop = 0
+            srcHeight = bitmap.height
+        }
+
         bitmap = Bitmap.createBitmap(bitmap, srcLeft, srcTop, srcWidth, srcHeight)
 
         return bitmap
